@@ -1,22 +1,16 @@
 //For modular design importing different components and hooks
 import { useState } from 'react'
 import Navbar from './components/Navbar'
+import Window1 from './components/Window1';
+import Window2 from './components/Window2'
+import Window3 from './components/Window3'
+import Sidebar from './components/Sidebar';
 import './App.css'
 import '@annotationhub/react-golden-layout/dist/css/goldenlayout-base.css';
 import '@annotationhub/react-golden-layout/dist/css/themes/goldenlayout-dark-theme.css';
 import { GoldenLayoutComponent } from '@annotationhub/react-golden-layout';
 
-function ComponentA() {
-  return <h2>A</h2>;
-}
 
-function ComponentB() {
-  return <h2>B</h2>;
-}
-
-function ComponentC(props) {
-  return <h2>{props.myText}</h2>;
-}
 
 //Starting point of whole website 
 function App() {
@@ -25,26 +19,30 @@ function App() {
   return (
     <div className='app-container'>
       <Navbar />
-        {/* From here the Golden Layout Starts it gets three different componets and arrange it as per the config */}
-      <div style={{ width: '100%', height: '90%' }}>
+      {/* From here the Golden Layout Starts it gets three different componets and arrange it as per the config */}
+      <div style={{ width: '100%', height: '90%', display: 'flex' }}>
+
+        <Sidebar />
         <GoldenLayoutComponent
           // (Required) Golden Layout Config. (See http://golden-layout.com/docs/Config.html)
           config={{
-            // you can change the type to arrange it row wise 
+            // you can change the type to arrange it column wise
             content: [{
-              type: 'column',
+              type: 'row',
               content: [{
-                component: ComponentA,
-                title: 'A Component'
-              }, {
-                type: 'row',
-                content: [{
-                  component: ComponentB,
-                  title: 'B Component'
-                }, {
-                  component: () => <ComponentC myText="Component with Props" />,
-                  title: 'C Component'
-                }]
+                component: Window1, //here the window1 get rendered 
+                title: 'A Component', //Its the title of window
+                width: 15, //From here we can change the width of the window1 (Optional)
+              },
+              {
+                component: Window2,
+                title: 'B Component',
+                width: 50
+              },
+              {
+                component: Window3,
+                title: 'C Component',
+                width: 35
               }]
             }]
           }}
