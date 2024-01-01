@@ -8,10 +8,11 @@ This repository contains the source code for a [React](https://reactjs.org/) app
 ## Directory Structure
 
 Here's a breakdown of the key directories and files within the project:
+
+
+Directory Structure Image: 
 ![image](https://github.com/mecskyverse/GoldenLayout/assets/91150257/8b0c8df1-4688-4922-ae36-86e47c13cdb3)
 
-
-Directory Structure Image: path/to/directory-structure-image.png
 
 - **public:** Contains static assets like the svg files here is a logo of Vite named (Vite.svg) which appear to be on top of tab. You can change icon in index.html file.
 - **src:** Holds the main source code for the React application, including:
